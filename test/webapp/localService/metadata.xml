@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="SIRA.OHZONE_ODATA_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="expiry_status" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Expired"/>
+                </Key>
+                <Property Name="Expired" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="CHAR05" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Message" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Message Variable" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="po_data" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Project"/>
+                </Key>
+                <Property Name="Project" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="PoDate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Document Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TotalValue" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="3" sap:unicode="false" sap:label="Tot. val. rel." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Potimedate" Type="Edm.Decimal" Nullable="false" Precision="15" Scale="0" sap:unicode="false" sap:label="Time Stamp" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="expend_data_child" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ProjectNum"/>
+                    <PropertyRef Name="Project"/>
+                    <PropertyRef Name="Level1Num"/>
+                    <PropertyRef Name="Level1Name"/>
+                    <PropertyRef Name="Level2Num"/>
+                    <PropertyRef Name="Level2Name"/>
+                    <PropertyRef Name="Deltatimestamp"/>
+                </Key>
+                <Property Name="ProjectNum" Type="Edm.String" Nullable="false" MaxLength="24" sap:unicode="false" sap:label="Project def." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Project" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Level1Num" Type="Edm.String" Nullable="false" MaxLength="24" sap:unicode="false" sap:label="WBS element" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Level1Name" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Level2Num" Type="Edm.String" Nullable="false" MaxLength="24" sap:unicode="false" sap:label="WBS element" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Level2Name" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Expenseid" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Document Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Timestamp" Type="Edm.DateTime" Precision="0" sap:unicode="false" sap:label="Time Stamp" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Amount" Type="Edm.Decimal" Precision="24" Scale="3" sap:unicode="false" sap:label="Amount in TC" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Deltatimestamp" Type="Edm.String" Nullable="false" MaxLength="14" sap:unicode="false" sap:label="deltatimestamp" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="expend_data" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ProjectNum"/>
+                    <PropertyRef Name="Project"/>
+                    <PropertyRef Name="Level1Num"/>
+                    <PropertyRef Name="Level1Name"/>
+                    <PropertyRef Name="Level2Num"/>
+                    <PropertyRef Name="Level2Name"/>
+                    <PropertyRef Name="Deltatimestamp"/>
+                </Key>
+                <Property Name="ProjectNum" Type="Edm.String" Nullable="false" MaxLength="24" sap:unicode="false" sap:label="Project def." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Project" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Level1Num" Type="Edm.String" Nullable="false" MaxLength="24" sap:unicode="false" sap:label="WBS element" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Level1Name" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Level2Num" Type="Edm.String" Nullable="false" MaxLength="24" sap:unicode="false" sap:label="WBS element" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Level2Name" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Amount" Type="Edm.Decimal" Precision="24" Scale="3" sap:unicode="false" sap:label="Amount in TC" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Deltatimestamp" Type="Edm.String" Nullable="false" MaxLength="14" sap:unicode="false" sap:label="Delta timestamp" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="np_expend_head_to_item" Relationship="SIRA.OHZONE_ODATA_SRV.expend_association" FromRole="FromRole_expend_association" ToRole="ToRole_expend_association"/>
+            </EntityType>
+            <EntityType Name="budet_data_wbs" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ProjectNum"/>
+                    <PropertyRef Name="LastDocNum"/>
+                </Key>
+                <Property Name="ProjectNum" Type="Edm.String" Nullable="false" MaxLength="24" sap:unicode="false" sap:label="Project def." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Project" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Level1Num" Type="Edm.String" Nullable="false" MaxLength="24" sap:unicode="false" sap:label="WBS element" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Level1Name" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Level2Num" Type="Edm.String" Nullable="false" MaxLength="24" sap:unicode="false" sap:label="WBS element" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Level2Name" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Allocated" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="3" sap:unicode="false" sap:label="Total" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="LastDocNum" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Document Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DocDate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Document Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="proj_revenue" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ProjectNum"/>
+                    <PropertyRef Name="Project"/>
+                    <PropertyRef Name="Level1Num"/>
+                    <PropertyRef Name="Level1Name"/>
+                    <PropertyRef Name="Level2Num"/>
+                    <PropertyRef Name="Level2Name"/>
+                    <PropertyRef Name="Deltatimestamp"/>
+                </Key>
+                <Property Name="ProjectNum" Type="Edm.String" Nullable="false" MaxLength="24" sap:unicode="false" sap:label="Project def." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Project" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Level1Num" Type="Edm.String" Nullable="false" MaxLength="24" sap:unicode="false" sap:label="WBS element" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Level1Name" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Level2Num" Type="Edm.String" Nullable="false" MaxLength="24" sap:unicode="false" sap:label="WBS element" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Level2Name" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Amount" Type="Edm.Decimal" Precision="24" Scale="3" sap:unicode="false" sap:label="Amount in TC" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Deltatimestamp" Type="Edm.String" Nullable="false" MaxLength="14" sap:unicode="false" sap:label="Delta timestamp" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="np_revenue_head_to_item" Relationship="SIRA.OHZONE_ODATA_SRV.revenue_association" FromRole="FromRole_revenue_association" ToRole="ToRole_revenue_association"/>
+            </EntityType>
+            <EntityType Name="proj_revenue_child" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ProjectNum"/>
+                    <PropertyRef Name="Project"/>
+                    <PropertyRef Name="Level1Num"/>
+                    <PropertyRef Name="Level1Name"/>
+                    <PropertyRef Name="Level2Num"/>
+                    <PropertyRef Name="Level2Name"/>
+                    <PropertyRef Name="Deltatimestamp"/>
+                </Key>
+                <Property Name="ProjectNum" Type="Edm.String" Nullable="false" MaxLength="24" sap:unicode="false" sap:label="Project def." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Project" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Level1Num" Type="Edm.String" Nullable="false" MaxLength="24" sap:unicode="false" sap:label="WBS element" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Level1Name" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Level2Num" Type="Edm.String" Nullable="false" MaxLength="24" sap:unicode="false" sap:label="WBS element" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Level2Name" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="RevenueId" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Document Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Timestamp" Type="Edm.DateTime" Nullable="false" Precision="0" sap:unicode="false" sap:label="Time Stamp" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Amount" Type="Edm.Decimal" Nullable="false" Precision="24" Scale="3" sap:unicode="false" sap:label="Amount in TC" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Deltatimestamp" Type="Edm.String" Nullable="false" MaxLength="14" sap:unicode="false" sap:label="Delta timestamp" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="PO_DATA1" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ProjectNum"/>
+                    <PropertyRef Name="Project"/>
+                    <PropertyRef Name="Level1Num"/>
+                    <PropertyRef Name="Level1Name"/>
+                    <PropertyRef Name="Level2Num"/>
+                    <PropertyRef Name="Level2Name"/>
+                    <PropertyRef Name="Deltatimestamp"/>
+                </Key>
+                <Property Name="ProjectNum" Type="Edm.String" Nullable="false" MaxLength="24" sap:unicode="false" sap:label="Project def." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Project" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Level1Num" Type="Edm.String" Nullable="false" MaxLength="24" sap:unicode="false" sap:label="WBS element" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Level1Name" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Level2Num" Type="Edm.String" Nullable="false" MaxLength="24" sap:unicode="false" sap:label="WBS element" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Level2Name" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Amount" Type="Edm.Decimal" Nullable="false" Precision="14" Scale="3" sap:unicode="false" sap:label="Amount" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Deltatimestamp" Type="Edm.String" Nullable="false" MaxLength="14" sap:unicode="false" sap:label="Delta timestamp" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="np_po_head_to_item" Relationship="SIRA.OHZONE_ODATA_SRV.PO_Association" FromRole="FromRole_PO_Association" ToRole="ToRole_PO_Association"/>
+            </EntityType>
+            <EntityType Name="PO_DATA_CHILD" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ProjectNum"/>
+                    <PropertyRef Name="Project"/>
+                    <PropertyRef Name="Level1Num"/>
+                    <PropertyRef Name="Level1Name"/>
+                    <PropertyRef Name="Level2Num"/>
+                    <PropertyRef Name="Level2Name"/>
+                    <PropertyRef Name="Deltatimestamp"/>
+                </Key>
+                <Property Name="ProjectNum" Type="Edm.String" Nullable="false" MaxLength="24" sap:unicode="false" sap:label="Project def." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Project" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Level1Num" Type="Edm.String" Nullable="false" MaxLength="24" sap:unicode="false" sap:label="WBS element" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Level1Name" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Level2Num" Type="Edm.String" Nullable="false" MaxLength="24" sap:unicode="false" sap:label="WBS element" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Level2Name" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DocumentNo" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Document Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Timestamp" Type="Edm.DateTime" Nullable="false" Precision="0" sap:unicode="false" sap:label="Time Stamp" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Amount" Type="Edm.Decimal" Nullable="false" Precision="14" Scale="3" sap:unicode="false" sap:label="Amount" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Deltatimestamp" Type="Edm.String" Nullable="false" MaxLength="14" sap:unicode="false" sap:label="Delta timestamp" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="project" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ProjectNum"/>
+                </Key>
+                <Property Name="ProjectNum" Type="Edm.String" Nullable="false" MaxLength="24" sap:unicode="false" sap:label="Project def." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Project" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="PhaseNum" Type="Edm.String" Nullable="false" MaxLength="24" sap:unicode="false" sap:label="WBS element" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Phasename" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <Association Name="revenue_association" sap:content-version="1">
+                <End Type="SIRA.OHZONE_ODATA_SRV.proj_revenue" Multiplicity="1" Role="FromRole_revenue_association"/>
+                <End Type="SIRA.OHZONE_ODATA_SRV.proj_revenue_child" Multiplicity="*" Role="ToRole_revenue_association"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_revenue_association">
+                        <PropertyRef Name="Level2Name"/>
+                        <PropertyRef Name="Level2Num"/>
+                        <PropertyRef Name="Level1Name"/>
+                        <PropertyRef Name="Level1Num"/>
+                        <PropertyRef Name="Project"/>
+                        <PropertyRef Name="ProjectNum"/>
+                        <PropertyRef Name="Deltatimestamp"/>
+                    </Principal>
+                    <Dependent Role="ToRole_revenue_association">
+                        <PropertyRef Name="Level2Name"/>
+                        <PropertyRef Name="Level2Num"/>
+                        <PropertyRef Name="Level1Name"/>
+                        <PropertyRef Name="Level1Num"/>
+                        <PropertyRef Name="Project"/>
+                        <PropertyRef Name="ProjectNum"/>
+                        <PropertyRef Name="Deltatimestamp"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="expend_association" sap:content-version="1">
+                <End Type="SIRA.OHZONE_ODATA_SRV.expend_data" Multiplicity="1" Role="FromRole_expend_association"/>
+                <End Type="SIRA.OHZONE_ODATA_SRV.expend_data_child" Multiplicity="*" Role="ToRole_expend_association"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_expend_association">
+                        <PropertyRef Name="Deltatimestamp"/>
+                        <PropertyRef Name="ProjectNum"/>
+                        <PropertyRef Name="Project"/>
+                        <PropertyRef Name="Level1Num"/>
+                        <PropertyRef Name="Level1Name"/>
+                        <PropertyRef Name="Level2Num"/>
+                        <PropertyRef Name="Level2Name"/>
+                    </Principal>
+                    <Dependent Role="ToRole_expend_association">
+                        <PropertyRef Name="Deltatimestamp"/>
+                        <PropertyRef Name="ProjectNum"/>
+                        <PropertyRef Name="Project"/>
+                        <PropertyRef Name="Level1Num"/>
+                        <PropertyRef Name="Level1Name"/>
+                        <PropertyRef Name="Level2Num"/>
+                        <PropertyRef Name="Level2Name"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="PO_Association" sap:content-version="1">
+                <End Type="SIRA.OHZONE_ODATA_SRV.PO_DATA1" Multiplicity="1" Role="FromRole_PO_Association"/>
+                <End Type="SIRA.OHZONE_ODATA_SRV.PO_DATA_CHILD" Multiplicity="*" Role="ToRole_PO_Association"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_PO_Association">
+                        <PropertyRef Name="ProjectNum"/>
+                        <PropertyRef Name="Project"/>
+                        <PropertyRef Name="Level1Num"/>
+                        <PropertyRef Name="Level1Name"/>
+                        <PropertyRef Name="Level2Num"/>
+                        <PropertyRef Name="Level2Name"/>
+                        <PropertyRef Name="Deltatimestamp"/>
+                    </Principal>
+                    <Dependent Role="ToRole_PO_Association">
+                        <PropertyRef Name="ProjectNum"/>
+                        <PropertyRef Name="Project"/>
+                        <PropertyRef Name="Level1Num"/>
+                        <PropertyRef Name="Level1Name"/>
+                        <PropertyRef Name="Level2Num"/>
+                        <PropertyRef Name="Level2Name"/>
+                        <PropertyRef Name="Deltatimestamp"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityContainer Name="SIRA_OHZONE_ODATA_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="expiry_statusSet" EntityType="SIRA.OHZONE_ODATA_SRV.expiry_status" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="po_dataSet" EntityType="SIRA.OHZONE_ODATA_SRV.po_data" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="expend_data_childSet" EntityType="SIRA.OHZONE_ODATA_SRV.expend_data_child" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="expend_dataSet" EntityType="SIRA.OHZONE_ODATA_SRV.expend_data" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="budet_data_wbsSet" EntityType="SIRA.OHZONE_ODATA_SRV.budet_data_wbs" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="proj_revenueSet" EntityType="SIRA.OHZONE_ODATA_SRV.proj_revenue" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="proj_revenue_childSet" EntityType="SIRA.OHZONE_ODATA_SRV.proj_revenue_child" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="PO_DATA1Set" EntityType="SIRA.OHZONE_ODATA_SRV.PO_DATA1" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="PO_DATA_CHILDSet" EntityType="SIRA.OHZONE_ODATA_SRV.PO_DATA_CHILD" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="projectSet" EntityType="SIRA.OHZONE_ODATA_SRV.project" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <AssociationSet Name="revenue_associationSet" Association="SIRA.OHZONE_ODATA_SRV.revenue_association" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="proj_revenueSet" Role="FromRole_revenue_association"/>
+                    <End EntitySet="proj_revenue_childSet" Role="ToRole_revenue_association"/>
+                </AssociationSet>
+                <AssociationSet Name="expend_associationSet" Association="SIRA.OHZONE_ODATA_SRV.expend_association" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="expend_dataSet" Role="FromRole_expend_association"/>
+                    <End EntitySet="expend_data_childSet" Role="ToRole_expend_association"/>
+                </AssociationSet>
+                <AssociationSet Name="PO_AssociationSet" Association="SIRA.OHZONE_ODATA_SRV.PO_Association" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="PO_DATA1Set" Role="FromRole_PO_Association"/>
+                    <End EntitySet="PO_DATA_CHILDSet" Role="ToRole_PO_Association"/>
+                </AssociationSet>
+            </EntityContainer>
+            <atom:link rel="self" href="http://216.215.77.162:50000/sap/opu/odata/SIRA/OHZONE_ODATA_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="http://216.215.77.162:50000/sap/opu/odata/SIRA/OHZONE_ODATA_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
